@@ -59,4 +59,22 @@ Route::group(['prefix' => 'tags','namespace' => 'App\Http\Controllers\Tag'],func
 
 });
 
+Route::group(['prefix' => 'colors','namespace' => 'App\Http\Controllers\Color'],function(){
+
+    Route::get('','IndexController')->name('color.index');
+
+    Route::get('create','CreateController')->name('color.create');
+
+    Route::post('store','StoreController')->name('color.store');
+
+    Route::get('{color}', 'ShowController')->name('color.show');
+
+    Route::get('{color}/edit','EditController')->name('color.edit');
+
+    Route::put('{color}/update','UpdateController')->name('color.update');
+
+    Route::delete('{color}/delete', 'DeleteController')->name('color.delete');
+
+});
+
 

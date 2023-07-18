@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'cabinet',],function (){
-    Route::get('',[AdminController::class,'main'])
-        ->name('cabinet.main');
+Route::group(['prefix' => 'cabinet','namespace' => 'App\Http\Controllers\Main'],function (){
 
+    Route::get('','IndexController')->name('cabinet.main');
 
 });

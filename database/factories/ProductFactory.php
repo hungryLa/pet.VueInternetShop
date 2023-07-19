@@ -19,12 +19,13 @@ class ProductFactory extends Factory
     {
         return [
             'title' => $this->faker->text(25),
-            'category' => Category::get()->random()->title,
             'description' => $this->faker->text(100),
             'contents' => $this->faker->text(100),
+            'price_old' => random_int(500,5000),
             'price' => random_int(500,5000),
             'count' => random_int(1,10),
             'is_published' => $this->faker->boolean,
+            'category_id' => Category::get()->random()->id,
         ];
     }
 }

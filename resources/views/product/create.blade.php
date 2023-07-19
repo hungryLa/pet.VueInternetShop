@@ -28,6 +28,10 @@
                     <div class="d-flex">
                         <x-form.inputText name="title" title="Название" value="{{old('title')}}"
                                           placeholder="Введите название" disabled=""/>
+
+                        <x-form.inputText name="price_old" title="Старая цена" value="{{old('price_old')}}"
+                                          placeholder="Введите старую цену" disabled=""/>
+
                         <x-form.inputText name="price" title="Цена" value="{{old('price')}}"
                                           placeholder="Введите цену" disabled=""/>
 
@@ -42,7 +46,7 @@
                                      disabled="" />
 
                     <div class="form-group">
-                        <select class="form-control select2" name="category" style="width: 100%;">
+                        <select class="form-control select2" name="category_id" style="width: 100%;">
                             <option disabled selected value="">Выберите категорию</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>

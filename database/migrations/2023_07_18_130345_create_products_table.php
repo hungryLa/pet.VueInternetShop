@@ -15,14 +15,16 @@ return new class extends Migration
             $table->id();
 
             $table->string('title');
-            $table->string('category');
             $table->text('description');
             $table->text('contents');
             $table->string('preview_image')->nullable();
 
+            $table->unsignedInteger('price_old')->nullable();
             $table->unsignedInteger('price');
             $table->unsignedSmallInteger('count');
             $table->boolean('is_published')->default(false);
+
+            $table->unsignedInteger('category_id');
 
             $table->timestamps();
         });

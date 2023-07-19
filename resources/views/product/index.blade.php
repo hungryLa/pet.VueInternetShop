@@ -36,6 +36,7 @@
                                     <th>ID</th>
                                     <th>Наименование</th>
                                     <th>Категория</th>
+                                    <th>Старая цена</th>
                                     <th>Цена</th>
                                     <th>Количество на складе</th>
                                 </tr>
@@ -45,7 +46,8 @@
                                     <tr>
                                         <td>{{ $product->id }}</td>
                                         <td><a href="{{route('product.show',compact('product'))}}">{{ $product->title }}</a></td>
-                                        <td>{{ $product->category }}</td>
+                                        <td>{{ $product->category->title }}</td>
+                                        <td>{{ $product->price_old }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->count }}</td>
                                     </tr>

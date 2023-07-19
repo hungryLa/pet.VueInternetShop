@@ -95,4 +95,22 @@ Route::group(['prefix' => 'users','namespace' => 'App\Http\Controllers\User'],fu
 
 });
 
+Route::group(['prefix' => 'products','namespace' => 'App\Http\Controllers\Product'],function(){
+
+    Route::get('','IndexController')->name('product.index');
+
+    Route::get('create','CreateController')->name('product.create');
+
+    Route::post('store','StoreController')->name('product.store');
+
+    Route::get('{product}', 'ShowController')->name('product.show');
+
+    Route::get('{product}/edit','EditController')->name('product.edit');
+
+    Route::put('{product}/update','UpdateController')->name('product.update');
+
+    Route::delete('{product}/delete', 'DeleteController')->name('product.delete');
+
+});
+
 

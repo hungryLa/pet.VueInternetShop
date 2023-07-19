@@ -17,6 +17,7 @@ class StoreController extends Controller
         try {
 
             $data = $request->validated();
+
             User::create($data);
 
         } catch (\Exception $exception) {

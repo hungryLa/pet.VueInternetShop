@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,6 +27,7 @@ class ProductFactory extends Factory
             'count' => random_int(1,10),
             'is_published' => $this->faker->boolean,
             'category_id' => Category::get()->random()->id,
+            'group_id' => Group::get()->random()->id,
         ];
     }
 }

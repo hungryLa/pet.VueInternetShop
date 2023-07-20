@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('is_published')->default(false);
 
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('group_id');
 
             $table->timestamps();
         });

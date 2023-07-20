@@ -41,24 +41,6 @@ Route::group(['prefix' => 'categories','namespace' => 'App\Http\Controllers\Cate
 
 });
 
-Route::group(['prefix' => 'tags','namespace' => 'App\Http\Controllers\Tag'],function(){
-
-    Route::get('','IndexController')->name('tag.index');
-
-    Route::get('create','CreateController')->name('tag.create');
-
-    Route::post('store','StoreController')->name('tag.store');
-
-    Route::get('{tag}', 'ShowController')->name('tag.show');
-
-    Route::get('{tag}/edit','EditController')->name('tag.edit');
-
-    Route::put('{tag}/update','UpdateController')->name('tag.update');
-
-    Route::delete('{tag}/delete', 'DeleteController')->name('tag.delete');
-
-});
-
 Route::group(['prefix' => 'colors','namespace' => 'App\Http\Controllers\Color'],function(){
 
     Route::get('','IndexController')->name('color.index');
@@ -77,23 +59,6 @@ Route::group(['prefix' => 'colors','namespace' => 'App\Http\Controllers\Color'],
 
 });
 
-Route::group(['prefix' => 'users','namespace' => 'App\Http\Controllers\User'],function(){
-
-    Route::get('','IndexController')->name('user.index');
-
-    Route::get('create','CreateController')->name('user.create');
-
-    Route::post('store','StoreController')->name('user.store');
-
-    Route::get('{user}', 'ShowController')->name('user.show');
-
-    Route::get('{user}/edit','EditController')->name('user.edit');
-
-    Route::put('{user}/update','UpdateController')->name('user.update');
-
-    Route::delete('{user}/delete', 'DeleteController')->name('user.delete');
-
-});
 
 Route::group(['prefix' => 'products','namespace' => 'App\Http\Controllers\Product'],function(){
 
@@ -110,6 +75,60 @@ Route::group(['prefix' => 'products','namespace' => 'App\Http\Controllers\Produc
     Route::put('{product}/update','UpdateController')->name('product.update');
 
     Route::delete('{product}/delete', 'DeleteController')->name('product.delete');
+
+});
+
+Route::group(['prefix' => 'groups','namespace' => 'App\Http\Controllers\Group'],function(){
+
+    Route::get('','IndexController')->name('group.index');
+
+    Route::get('create','CreateController')->name('group.create');
+
+    Route::post('store','StoreController')->name('group.store');
+
+    Route::get('{group}', 'ShowController')->name('group.show');
+
+    Route::get('{group}/edit','EditController')->name('group.edit');
+
+    Route::put('{group}/update','UpdateController')->name('group.update');
+
+    Route::delete('{group}/delete', 'DeleteController')->name('group.delete');
+
+});
+
+Route::group(['prefix' => 'tags','namespace' => 'App\Http\Controllers\Tag'],function(){
+
+    Route::get('','IndexController')->name('tag.index');
+
+    Route::get('create','CreateController')->name('tag.create');
+
+    Route::post('store','StoreController')->name('tag.store');
+
+    Route::get('{tag}', 'ShowController')->name('tag.show');
+
+    Route::get('{tag}/edit','EditController')->name('tag.edit');
+
+    Route::put('{tag}/update','UpdateController')->name('tag.update');
+
+    Route::delete('{tag}/delete', 'DeleteController')->name('tag.delete');
+
+});
+
+Route::group(['prefix' => 'users','namespace' => 'App\Http\Controllers\User'],function(){
+
+    Route::get('','IndexController')->name('user.index');
+
+    Route::get('create','CreateController')->name('user.create');
+
+    Route::post('store','StoreController')->name('user.store');
+
+    Route::get('{user}', 'ShowController')->name('user.show');
+
+    Route::get('{user}/edit','EditController')->name('user.edit');
+
+    Route::put('{user}/update','UpdateController')->name('user.update');
+
+    Route::delete('{user}/delete', 'DeleteController')->name('user.delete');
 
 });
 

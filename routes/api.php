@@ -26,7 +26,7 @@ Route::group(['prefix' => 'products','namespace' => 'App\Http\Controllers\API\Pr
 //
 //    Route::post('store','StoreController')->name('product.store');
 //
-//    Route::get('{product}', 'ShowController')->name('product.show');
+    Route::get('{product}', 'ShowController')->name('product.show');
 //
 //    Route::get('{product}/edit','EditController')->name('product.edit');
 //

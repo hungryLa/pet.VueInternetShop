@@ -18,8 +18,11 @@ class DeleteController extends Controller
             $product->tags()->delete();
             $product->colors()->delete();
 
-            if($product->preview_image != null){
-                Storage::disk('public')->delete($product->preview_image);
+            if(count($product->images) != 0){
+                foreach ($product->images as $image){
+                    Storage::disk('public')->delete($image->file_path);
+                }
+                $product->images()->delete();
             }
 
             $product->delete();

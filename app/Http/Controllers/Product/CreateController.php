@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Color;
+use App\Models\Group;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,10 @@ class CreateController extends Controller
     public function __invoke()
     {
         $categories = Category::orderBy('title')->get();
+        $groups = Group::orderBy('title')->get();
         $tags = Tag::orderBy('title')->get();
         $colors = Color::orderBy('title')->get();
         return view('product.create',
-            compact('categories','tags','colors'));
+            compact('categories','tags','colors','groups'));
     }
 }

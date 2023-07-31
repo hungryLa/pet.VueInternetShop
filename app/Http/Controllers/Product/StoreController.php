@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\StoreRequest;
 use App\Models\ColorProduct;
+use App\Models\File;
 use App\Models\Product;
 use App\Models\ProductTag;
 use Illuminate\Http\Request;
@@ -18,18 +19,30 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         try {
-
             $data = $request->validated();
-
-            $data['preview_image'] = Storage::disk('public')->put('products/images',$data['preview_image']);
 
             $tagsIds = $data['tags'];
             $colorsIds = $data['colors'];
-            unset($data['tags'],$data['colors']);
+            $images = $data['images'];
+
+            unset($data['tags'],$data['colors'],$data['images']);
 
             $product = Product::firstOrCreate([
                 'title' => $data['title']
             ], $data);
+
+            foreach ($images as $image){
+                $currentImages = count($product->images);
+                if($currentImages <= Product::MAX_FILES['images']){
+                    $path_file = Storage::disk('public')->put('products/images',$image);
+                    File::create([
+                        'model_type' => Product::TYPE,
+                        'model_id' => $product->id,
+                        'file_type' => File::TYPES_FILE['image'],
+                        'file_path' => $path_file,
+                    ]);
+                }
+            }
 
             foreach ($tagsIds as $tagsId) {
                 ProductTag::firstOrCreate([

@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'products','namespace' => 'App\Http\Controllers\API\Product'],function(){
 
     Route::get('','IndexController')->name('product.index');
+
+    Route::get('filters','FilterListController')->name('product.filters');
 //
 //    Route::get('create','CreateController')->name('product.create');
 //
